@@ -288,6 +288,26 @@ console.log("=========================")
         }
 
     }
+    function TrierParPrix(){
+        let swap;
+        for(i=0;i<trips.length;i++){
+           for(let j=0;j<trips.length-1;j++){
+             if(trips[j].price>trips[j+1].price){
+                swap=trips[j];
+                trips[j]=trips[j+1];
+                trips[j+1]=swap;
+           }
+
+            }
+        }
+        for(let i=0;i<trips.length;i++){
+            console.log(`#${trips[i].id} ${trips[i].departure} → ${trips[i].destination}
+            Départ :${trips[i].departureTime}
+            Arrivée : ${trips[i].arrivalTime}
+            Prix : ${trips[i].price} DH
+            Places disponibles : ${trips[i].availableSeats}`)
+        }
+    }
 
 let choix;
 
@@ -316,7 +336,10 @@ while (choix !== 0) {
             break;
         case 6:
             FiltrerTrajets();
-            break
+            break;
+        case 7:
+            TrierParPrix();
+            break;
         case 0:
             console.log('Au revoir');
             break;
