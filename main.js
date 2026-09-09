@@ -6,7 +6,7 @@ const trips = [
         departureTime: "07:30",
         arrivalTime: "08:30",
         price: 25,
-        availableSeats: 50
+        availableSeats: 3
     },
     {
         id: 2,
@@ -261,13 +261,33 @@ Prix : ${tickets[i].price} DH`)
         console.log(' operation aperdu')
                   }
 
-                  
+
      }
-     function RechercherTicket(passengerNameRechercher){
-        let TicketsPassagar=tickets.filter((element) => {
-            return element.passengerName ==passengerNameRechercher
+     function RechercherTicket(){
+        let npassager=prompt('Entrer Nom du passager ')
+        for(let i=0;i<tickets.length;i++){
+            if(npassager==tickets[i].passengerName){
+                console.log(tickets[i])
+            }
+        }
+    }
+    function FiltrerTrajets(){
+        let trouve= false
+        let ville=prompt('entrer une ville de depart')
+        for(let i=0;i<trips.length;i++){
             
-})}
+            if(ville ==trips[i].departure){
+                console.log(`${trips[i].departure} -> ${trips[i].destination}
+prix: ${trips[i].price}`)
+console.log("=========================")
+                     trouve=true
+            }
+        }
+     if(trouve==false){
+    console.log('aucun trajet trouve! ')
+        }
+
+    }
 
 let choix;
 
@@ -291,7 +311,12 @@ while (choix !== 0) {
         case 4:
             AnnulerTicket()
             break;
-
+        case 5:
+            RechercherTicket();
+            break;
+        case 6:
+            FiltrerTrajets();
+            break
         case 0:
             console.log('Au revoir');
             break;
