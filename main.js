@@ -194,6 +194,7 @@ RAILWAY MANAGER
 5. Rechercher un ticket
 6. Filtrer les trajets
 7. Trier les trajets
+8. Afficher total tickets
 0. Quitter
         `);
 }
@@ -212,7 +213,7 @@ function afficherTrajets() {
 
 function AcheterTieckt(){
 let passengerName=prompt('Entrer votre nom: ');
-let idtrajet=prompt('Entrer le ID de trajet');
+let idtrajet=prompt('Entrer le ID de trajet: ');
 for(i=0;i<trips.length;i++){
     if(idtrajet==trips[i].id && trips[i].availableSeats>0){
         
@@ -308,6 +309,11 @@ console.log("=========================")
             Places disponibles : ${trips[i].availableSeats}`)
         }
     }
+    function TotalTickets(){
+        let somme=tickets.length;
+        console.log(somme) ;
+    }
+    
 
 let choix;
 
@@ -339,6 +345,9 @@ while (choix !== 0) {
             break;
         case 7:
             TrierParPrix();
+            break;
+        case 8:
+            TotalTickets()
             break;
         case 0:
             console.log('Au revoir');
