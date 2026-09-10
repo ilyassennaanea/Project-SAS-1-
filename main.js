@@ -6,7 +6,7 @@ const trips = [
         departureTime: "07:30",
         arrivalTime: "08:30",
         price: 25,
-        availableSeats: 3
+        availableSeats: 50
     },
     {
         id: 2,
@@ -195,6 +195,7 @@ RAILWAY MANAGER
 6. Filtrer les trajets
 7. Trier les trajets
 8. Afficher total tickets
+9.Chiffre d'affaires total
 0. Quitter
         `);
 }
@@ -313,6 +314,13 @@ console.log("=========================")
         let somme=tickets.length;
         console.log(somme) ;
     }
+    function CalculeChiffer(){
+        let somme=0;
+        for(let i=0;i<tickets.length;i++){
+             somme+=tickets[i].price
+        }
+        console.log(somme)
+    }
     
 
 let choix;
@@ -349,6 +357,9 @@ while (choix !== 0) {
         case 8:
             TotalTickets()
             break;
+        case 9:
+            CalculeChiffer();
+             break;
         case 0:
             console.log('Au revoir');
             break;
